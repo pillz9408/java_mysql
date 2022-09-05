@@ -7,6 +7,7 @@ public class MiniProjectConnectMySQL {
         // Default Schema : world
         // password : tbrs00002b
         // access to 'World' DB
+        // Make new SQL tab for executing query
         // Select * from City
         // print World.City
 
