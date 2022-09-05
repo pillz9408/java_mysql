@@ -34,7 +34,7 @@ public class MiniProjectConnectMysqlCountry {
             }
 
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
         // Select * from City
