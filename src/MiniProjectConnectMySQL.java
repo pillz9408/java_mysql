@@ -32,7 +32,7 @@ public class MiniProjectConnectMySQL {
                 // Retrieve by column name
                 System.out.print("ID: " + rs.getInt("ID"));
                 System.out.print(", Name: " + rs.getString("Name"));
-                System.out.print(", Population: " + rs.getInt("Population"));
+                System.out.println(", Population: " + rs.getInt("Population"));
                 
              }
 
