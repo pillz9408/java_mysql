@@ -1,10 +1,6 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
-public class MiniProjectConnectMySQL {
+public class MiniProjectConnectMysqlCountry {
     public static void main(String[] args) {
         // make project files
         // run MySQL Workbench
@@ -18,10 +14,10 @@ public class MiniProjectConnectMySQL {
         final String DB_URL = "jdbc:mysql://localhost/world";
         final String USER = "root";
         final String PASS = "tbrs00002b";
-        String QUERY = "select ID ,Name ,Population " + 
-                       "from city "+
+        String QUERY = "Select Code, Name, Capital, Continent " + 
+                       "from country "+
                        "Where 1 = 1 " + 
-                       "and Population >= 9230000 " ;
+                       "and Name like '%an%' " ;
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
             Statement stmt = conn.createStatement();
@@ -30,14 +26,15 @@ public class MiniProjectConnectMySQL {
             // result grid, check action output
             while (rs.next()) {
                 // Retrieve by column name
-                System.out.print("ID: " + rs.getInt("ID"));
+                System.out.print("Code: " + rs.getString("Code"));
                 System.out.print(", Name: " + rs.getString("Name"));
-                System.out.println(", Population: " + rs.getInt("Population"));
+                System.out.print(", Capital: " + rs.getInt("Capital"));
+                System.out.println(", Continent: " + rs.getString("Continent"));
                 
              }
 
         } catch (SQLException e) {
-            
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         // Select * from City
