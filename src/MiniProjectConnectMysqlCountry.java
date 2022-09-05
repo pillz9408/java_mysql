@@ -6,7 +6,7 @@ public class MiniProjectConnectMysqlCountry {
         // run MySQL Workbench
         // connect to DataBase
         // Connection method, hostname, port, Username, password, default schema
-        // Hostname: localhost  port: 3306
+        // Hostname: localhost port: 3306
         // Username: root
         // Default Schema : world
         // password : tbrs00002b
@@ -14,10 +14,10 @@ public class MiniProjectConnectMysqlCountry {
         final String DB_URL = "jdbc:mysql://localhost/world";
         final String USER = "root";
         final String PASS = "tbrs00002b";
-        String QUERY = "Select Code, Name, Capital, Continent " + 
-                       "from country "+
-                       "Where 1 = 1 " + 
-                       "and Name like '%an%' " ;
+        String QUERY = "Select Code, Name, Capital, Continent " +
+                "from country " +
+                "Where 1 = 1 " +
+                "and Name like '%an%' ";
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
             Statement stmt = conn.createStatement();
@@ -30,8 +30,8 @@ public class MiniProjectConnectMysqlCountry {
                 System.out.print(", Name: " + rs.getString("Name"));
                 System.out.print(", Capital: " + rs.getInt("Capital"));
                 System.out.println(", Continent: " + rs.getString("Continent"));
-                
-             }
+
+            }
 
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -40,8 +40,7 @@ public class MiniProjectConnectMysqlCountry {
         // Select * from City
         // print World.City
 
-
         return;
     }
-    
+
 }
