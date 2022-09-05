@@ -25,9 +25,17 @@ public class MiniProjectConnectMySQL {
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
             Statement stmt = conn.createStatement();
-            // Make new SQL tab for executing query
+            // insert
+            QUERY = "insert into city (ID, Name, CountryCode, District, Population) " +
+                    "Values (98765, 'Name', 'AFG', 'district', 100) ";
+            int val = stmt.executeUpdate(QUERY);
+            // select
+            QUERY = "select ID, Name, CountryCode, District, Population " +
+                    "from city " +
+                    "Where 1 = 1 " +
+                    "and Name = 'Name' ";
             ResultSet rs = stmt.executeQuery(QUERY);
-            // result grid, check action output
+            // resylt grid, check action output
             while (rs.next()) {
                 // Retrieve by column name
                 System.out.print("ID: " + rs.getInt("ID"));
@@ -35,6 +43,30 @@ public class MiniProjectConnectMySQL {
                 System.out.println(", Population: " + rs.getInt("Population"));
 
             }
+            // update
+            QUERY = "Update city " +
+                    "set Population = 20000 " +
+                    "Where Name = 'Name' ";
+            val = stmt.executeUpdate(QUERY);
+            // select
+            System.out.println();
+            // delete
+            QUERY = "delete from city " +
+                    "Where Name = 'Name' ";
+            val = stmt.executeUpdate(QUERY);
+            // select
+            System.out.println();
+
+            // Make new SQL tab for executing query
+            // ResultSet rs = stmt.executeQuery(QUERY);
+            // result grid, check action output
+            // while (rs.next()) {
+            // Retrieve by column name
+            // System.out.print("ID: " + rs.getInt("ID"));
+            // System.out.print(", Name: " + rs.getString("Name"));
+            // System.out.println(", Population: " + rs.getInt("Population"));
+
+            // }
 
         } catch (SQLException e) {
 
